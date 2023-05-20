@@ -78,6 +78,7 @@ pipeline {
 
 def build(){
     echo "Installing all required dependencies"
+    bat "C:\\Program Files\\nodejs\\node.exe"
     bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm install"
     //bat "C:\\Program Files\\nodejs\\npm install"
 }
@@ -86,7 +87,6 @@ def deps(){
     echo "Installing pip dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    bat "C:\\Program Files\\nodejs\\node.exe"
     bat "C:\\Python311\\Scripts\\pip install -r requirements.txt"
 }
 
@@ -102,3 +102,5 @@ def test(String environment){
     echo "Testing  ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
 }
+
+//C:\Users\richu\PraktDarbs_ar_Jenkins>
