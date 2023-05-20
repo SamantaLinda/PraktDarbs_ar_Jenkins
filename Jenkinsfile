@@ -27,7 +27,7 @@ pipeline {
         stage('Tests on DEV') {
             steps {
                 script{
-                    test("greetings", "DEV")
+                    test("DEV")
                 }
             }
         }
@@ -77,13 +77,13 @@ def deps(){
 
 def deploy(String environment){ 
     echo "Deployment to ${environment} has started.."
-    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
+    //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
+    //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
     bat "dir"
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
 }
 
-def test(String test_set, String environment){ 
+def test(String environment){ 
     echo "Testing  ${environment} has started.." 
     //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm install"
