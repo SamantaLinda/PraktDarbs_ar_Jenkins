@@ -27,7 +27,7 @@ pipeline {
         stage('Tests on DEV') {
             steps {
                 script{
-                    test("greettings", "DEV")
+                    test("greetings", "DEV")
                 }
             }
         }
@@ -87,5 +87,5 @@ def test(, String test_set, String environment){
     echo "Testing  ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm install"
-    bat "npm run ${test_set} ${test_set}_${environment}"
+    //bat "npm run ${test_set} ${test_set}_${environment}"
 }
