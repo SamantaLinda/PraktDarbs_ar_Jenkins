@@ -80,7 +80,7 @@ def build(){
     echo "Installing all required dependencies"
     //bat "C:\\Program Files\\nodejs\\node.exe"
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm install"
-    powershell "C:\\Program Files\\nodejs\\npm install"
+    powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm install"
 }
 
 def deps(){
