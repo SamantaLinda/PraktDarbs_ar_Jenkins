@@ -86,7 +86,7 @@ def deps(){
     echo "Installing pip dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    bat "C:\\Program Files\\nodejs\\node.exe"
+    bat "node"
     bat "C:\\Python311\\Scripts\\pip install -r requirements.txt"
 }
 
