@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy to DEV') {
             steps {
                 script{
-                    deploy("DEV")
+                    deploy("DEV", 7001)
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to STG') {
             steps {
                 script{
-                    deploy("STG") //, 2020)
+                    deploy("STG", 7002) 
                 }
             }
         }
@@ -48,21 +48,21 @@ pipeline {
         stage('Deploy to PrePRD') {
             steps {
                 script{
-                    deploy("PRD") //, 3030)
+                    deploy("PrePRD", 7003) 
                 }
             }
         }
         stage('Tests on PrePRD') {
             steps {
                 script{
-                    test("PRD")
+                    test("PrePRD")
                 }
             }
         }
         stage('Deploy to PRD') {
             steps {
                 script{
-                    deploy("PRD") //, 3030)
+                    deploy("PRD", 7004)
                 }
             }
         }
@@ -78,8 +78,6 @@ pipeline {
 
 def build(){
     echo "Installing all required dependencies"
-    //bat "C:\\Program Files\\nodejs\\node.exe"
-    //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm install"
     powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm install"
 }
 
@@ -90,17 +88,14 @@ def deps(){
     bat "C:\\Python311\\Scripts\\pip install -r requirements.txt"
 }
 
-def deploy(String environment){ 
+def deploy(String environment, int port){ 
     echo "Deployment to ${environment} has started.."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
-    bat "dir"
-    powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
+    powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\" --${port}"
 }
 
 def test(String environment){ 
     echo "Testing  ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
 }
-
-//C:\Users\richu\PraktDarbs_ar_Jenkins>
