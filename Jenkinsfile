@@ -75,5 +75,5 @@ def deploy(String environment){
 }
 
 def test(String environment){ 
-    echo "Testing ${test_set} test set on ${environment} has started.." 
+    echo "Testing  ${environment} has started.." 
 }
