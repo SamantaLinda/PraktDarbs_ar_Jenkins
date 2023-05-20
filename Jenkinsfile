@@ -70,7 +70,7 @@ def deps(){
     echo "Installing all required dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    powershell "pip install -r requirements.txt"
+    powershell "C:\Python311\Scripts\pip install -r requirements.txt"
 }
 
 def deploy(String environment){ 
