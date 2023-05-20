@@ -64,7 +64,7 @@ pipeline {
 
 def build(){
     echo "Installing all required dependencies"
-    bat "C:\\Program Files\\nodejs\\node npm install"
+    bat "C:\\Program Files\\nodejs\\node install"
 }
 
 def deps(){
