@@ -65,9 +65,9 @@ pipeline {
 def build(){
     echo "Installing all required dependencies"
     //bat "npm install"
-    //bat "C:\\Users\\richu\\AppData\\Roaming\\npm install"
+    //bat "C:\\Program Files\\nodejs\\npm install"
 }
-ar 
+
 def deps(){
     echo "Installing pip dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
@@ -77,15 +77,12 @@ def deps(){
 
 def deploy(String environment){ 
     echo "Deployment to ${environment} has started.."
-    //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
+    bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
     bat "dir"
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
 }
 
 def test(String environment){ 
     echo "Testing  ${environment} has started.." 
-    //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    //bat "C:\\Users\\richu\\AppData\\Roaming\\npm install"
-    //bat "npm run ${test_set} ${test_set}_${environment}"
 }
