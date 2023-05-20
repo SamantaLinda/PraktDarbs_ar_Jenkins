@@ -68,7 +68,7 @@ def build(){
 }
 
 def deps(){
-    echo "Installing all required dependencies"
+    echo "Installing pip dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
     bat "C:\\Python311\\Scripts\\pip install -r requirements.txt"
