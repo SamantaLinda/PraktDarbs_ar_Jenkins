@@ -1,3 +1,6 @@
+//GitHub repazitorijs - https://github.com/SamantaLinda/PraktDarbs_ar_Jenkins/tree/main
+
+
 pipeline {
     agent any
     triggers{ pollSCM('*/1 * * * *') }
