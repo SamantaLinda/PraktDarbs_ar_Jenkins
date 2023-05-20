@@ -17,59 +17,59 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to DEV') {
+        stage('Deploy to dev') {
             steps {
                 script{
-                    deploy("DEV", 7001)
+                    deploy("dev", 7001)
                 }
             }
         }
-        stage('Tests on DEV') {
+        stage('Tests on dev') {
             steps {
                 script{
-                    test("DEV")
+                    test("greetings","dev")
                 }
             }
         }
-        stage('Deploy to STG') {
+        stage('Deploy to staging') {
             steps {
                 script{
-                    deploy("STG", 7002) 
+                    deploy("staging", 7002) 
                 }
             }
         }
-        stage('Tests on STG') {
+        stage('Tests on staging') {
             steps {
                 script{
-                    test("STG")
+                    test("greetings","staging")
                 }
             }
         }
-        stage('Deploy to PrePRD') {
+        stage('Deploy to preprod') {
             steps {
                 script{
-                    deploy("PrePRD", 7003) 
+                    deploy("preprod", 7003) 
                 }
             }
         }
-        stage('Tests on PrePRD') {
+        stage('Tests on preprod') {
             steps {
                 script{
-                    test("PrePRD")
+                    test("greetings","preprod")
                 }
             }
         }
-        stage('Deploy to PRD') {
+        stage('Deploy to prod') {
             steps {
                 script{
-                    deploy("PRD", 7004)
+                    deploy("prod", 7004)
                 }
             }
         }
-        stage('Tests on PRD') {
+        stage('Tests on prod') {
             steps {
                 script{
-                    test("PRD")
+                    test("greetings","prod")
                 }
             }
         }
@@ -95,7 +95,8 @@ def deploy(String environment, int port){
     powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\" --${port}"
 }
 
-def test(String environment){ 
+def test(String test_set, String environment){ 
     echo "Testing  ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+    powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm run ${test_set} ${test_set}_${environment}"
 }
