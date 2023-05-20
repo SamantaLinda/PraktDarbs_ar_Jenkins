@@ -27,7 +27,7 @@ pipeline {
         stage('Tests on DEV') {
             steps {
                 script{
-                    test( "greetings", "DEV")
+                    test("DEV")
                 }
             }
         }
