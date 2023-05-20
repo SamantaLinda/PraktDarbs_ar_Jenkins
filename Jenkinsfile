@@ -63,7 +63,8 @@ pipeline {
 }
 
 def build(){
-    echo "Building of node application is starting.."
+    echo "Installing all required dependencies"
+    bat "npm install"
 }
 
 def deps(){
