@@ -64,7 +64,7 @@ pipeline {
 
 def build(){
     echo "Building of node application is starting.."
-    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+    //git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     bat "npm install"
 }
 

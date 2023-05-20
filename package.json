@@ -2,9 +2,5 @@
   "name": "PraktDarbs_ar_Jenkins",
   "lockfileVersion": 3,
   "requires": true,
-  "packages": {
-    "": {
-      "name": "PraktDarbs_ar_Jenkins"
-    }
-  }
+  "packages": {}
 }
