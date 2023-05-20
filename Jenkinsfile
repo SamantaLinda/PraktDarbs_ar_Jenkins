@@ -24,13 +24,13 @@ pipeline {
                 }
             }
         }
-        // stage('Tests on DEV') {
-        //     steps {
-        //         script{
-        //             test( "greetings", "DEV")
-        //         }
-        //     }
-        // }
+        stage('Tests on DEV') {
+            steps {
+                script{
+                    test( "greetings", "DEV")
+                }
+            }
+        }
         // stage('Deploy to STG') {
         //     steps {
         //         script{
