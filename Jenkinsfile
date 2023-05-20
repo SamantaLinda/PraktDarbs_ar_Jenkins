@@ -31,34 +31,48 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy to STG') {
-        //     steps {
-        //         script{
-        //             deploy("STG") //, 2020)
-        //         }
-        //     }
-        // }
-        // stage('Tests on STG') {
-        //     steps {
-        //         script{
-        //             test("STG")
-        //         }
-        //     }
-        // }
-        // stage('Deploy to PRD') {
-        //     steps {
-        //         script{
-        //             deploy("PRD") //, 3030)
-        //         }
-        //     }
-        // }
-        // stage('Tests on PRD') {
-        //     steps {
-        //         script{
-        //             test("PRD")
-        //         }
-        //     }
-        // }
+        stage('Deploy to STG') {
+            steps {
+                script{
+                    deploy("STG") //, 2020)
+                }
+            }
+        }
+        stage('Tests on STG') {
+            steps {
+                script{
+                    test("STG")
+                }
+            }
+        }
+        stage('Deploy to PrePRD') {
+            steps {
+                script{
+                    deploy("PRD") //, 3030)
+                }
+            }
+        }
+        stage('Tests on PrePRD') {
+            steps {
+                script{
+                    test("PRD")
+                }
+            }
+        }
+        stage('Deploy to PRD') {
+            steps {
+                script{
+                    deploy("PRD") //, 3030)
+                }
+            }
+        }
+        stage('Tests on PRD') {
+            steps {
+                script{
+                    test("PRD")
+                }
+            }
+        }
     }
 }
 
