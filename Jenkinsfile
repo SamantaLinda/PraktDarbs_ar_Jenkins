@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy to DEV') {
             steps {
                 script{
-                    deploy("DEV", 7001)
+                    deploy("DEV")
                 }
             }
         }
@@ -74,11 +74,11 @@ def deps(){
     bat "C:\\Python311\\Scripts\\pip install -r requirements.txt"
 }
 
-def deploy(String environment, int port){ 
+def deploy(String environment){ 
     echo "Deployment to ${environment} has started.."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
-    bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name \"greetings-app-${environment}\" -- ${port}"
+    //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name \"greetings-app-${environment}\" -- ${port}"
 }
 
 def test(String environment){ 
