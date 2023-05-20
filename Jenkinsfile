@@ -27,7 +27,7 @@ pipeline {
         stage('Tests on DEV') {
             steps {
                 script{
-                    test("DEV")
+                    test("greettings", "DEV")
                 }
             }
         }
@@ -65,9 +65,9 @@ pipeline {
 def build(){
     echo "Installing all required dependencies"
     //bat "npm install"
-    bat "C:\\Program Files\\nodejs\\npm install"
+    //bat "C:\\Program Files\\nodejs\\npm install"
 }
-
+ar 
 def deps(){
     echo "Installing pip dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
@@ -83,6 +83,9 @@ def deploy(String environment){
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
 }
 
-def test(String environment){ 
+def test(, String test_set, String environment){ 
     echo "Testing  ${environment} has started.." 
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+    //bat "npm install"
+    bat "npm run ${test_set} ${test_set}_${environment}"
 }
