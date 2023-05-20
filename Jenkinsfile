@@ -95,7 +95,7 @@ def deploy(String environment){
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 delete \"greetings-app-${environment}\" & EXIT /B 0"
     bat "dir"
-    bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
+    powershell "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
 }
 
 def test(String environment){ 
