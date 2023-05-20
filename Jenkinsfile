@@ -81,7 +81,7 @@ def build(){
     //bat "C:\\Program Files\\nodejs\\node.exe"
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\npm install"
     //bat "C:\\Program Files\\nodejs\\npm install"
-    bat "C:\\Users\\richu\\PraktDarbs_ar_Jenkins npm install"
+    bat "C:\\Users\\richu\\PraktDarbs_ar_Jenkins\\npm install"
 }
 
 def deps(){
