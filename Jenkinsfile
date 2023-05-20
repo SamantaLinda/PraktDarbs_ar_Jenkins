@@ -83,7 +83,7 @@ def deploy(String environment){
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm\\pm2 start app.py --name\"greetings-app-${environment}\""
 }
 
-def test(, String test_set, String environment){ 
+def test(String test_set, String environment){ 
     echo "Testing  ${environment} has started.." 
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     //bat "C:\\Users\\richu\\AppData\\Roaming\\npm install"
