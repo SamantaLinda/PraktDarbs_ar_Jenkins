@@ -70,7 +70,6 @@ def deps(){
     echo "Installing all required dependencies"
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
     bat "dir"
-    bat "python.exe -m pip install --upgrade pip"
     bat "pip3 install -r requirements.txt"
 }
 
